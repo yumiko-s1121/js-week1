@@ -14,3 +14,18 @@ function sayHello(){
         alert("You are a child")
     }
 }
+
+function checkScore() {
+    let score = document.getElementById("score").value;
+    score = Number(score);
+
+    let result = "";
+
+    if (score >= 80) {
+        result = "Pass";
+    } else {
+        result = "Fail"
+    }
+
+    document.getElementById("result").textContent = result
+}
