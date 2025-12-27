@@ -61,11 +61,29 @@ fetch("result.csv")
         let cols = lines[i].split(",");
         let tr = document.createElement("tr");
 
+        /*
         for (let c of cols) {
             let td = document.createElement("td");
             td.textContent = c;
             tr.appendChild(td);
         }
+        */
+
+        for (let j = 0; j < cols.length; j++) {
+            let td = document.createElement("td");
+            td.textContent = cols[j];
+
+            // 3列目(Result)なら色をつける
+            if (j === 2) {
+                if (cols[j] === "Pass") {
+                    td.className = "pass";
+                }
+                else {
+                    td.className = "fail"
+                }
+            }
+            tr.appendChild(td);
+       }
 
         tbody.appendChild(tr);
     }
