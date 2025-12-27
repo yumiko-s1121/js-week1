@@ -29,3 +29,44 @@ function checkScore() {
 
     document.getElementById("result").textContent = result
 }
+
+let people = [
+    {name: "Yumiko", score : 78},
+    {name: "John", score : 92},
+    {name: "Amy", score : 55},
+    {name: "Ken", score : 83}
+];
+
+function showPeople() {
+    let text = "";
+
+    for (let p of people) {
+        if(p.score >= 80) {
+            text += p.name + ": Pass\n";
+        } else {
+            text += p.name + ": Fail\n";
+        }
+    }
+
+    alert(text);
+}
+
+fetch("result.csv")
+.then(response => response.text())
+.then(text => {
+    let lines = text.trim().split("\n");
+    let tbody = document.getElementById("table-body");
+
+    for (let i = 1; i < lines.length; i++) {
+        let cols = lines[i].split(",");
+        let tr = document.createElement("tr");
+
+        for (let c of cols) {
+            let td = document.createElement("td");
+            td.textContent = c;
+            tr.appendChild(td);
+        }
+
+        tbody.appendChild(tr);
+    }
+})
