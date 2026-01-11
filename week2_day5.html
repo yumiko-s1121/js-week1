@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Score Manager</h2>
+        <div id="errorBox" style="color: red; font-weight: bold;"></div>
+        <br>
+
+        <!-- Add form 追加分-->
+        <h3>Add</h3>
+        Name:
+        <input id="addName" />
+        Score:
+        <input id="addScore" type="number" />
+        <button onclick="addRecord()">Add</button>
+
+        <hr />
+
+        <!-- Search + Sort -->
+        Name:
+        <input id="nameInput">
+        <button onclick="load()">Search</button>
+
+        <br><br>
+
+        Sort by score:
+        <button onclick="setSort('score')">Ascending</button>
+        <button onclick="setSort('score_desc')">Descending</button>
+
+        <br><br>
+
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Action</th>
+            </tr>
+        </table>
+
+        <script src="week2_day5.js"></script>
+    </body>
+</html>
